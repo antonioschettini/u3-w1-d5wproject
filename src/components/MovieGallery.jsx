@@ -37,8 +37,8 @@ class MovieGallery extends Component {
     this.fetchMovies();
   }
   render() {
-    const firstSlide = this.state.movies.slice(0, 5);
-    const secondSlide = this.state.movies.slice(5, 10);
+    const firstSlide = this.state.movies.slice(0, 6);
+    const secondSlide = this.state.movies.slice(4, 10);
     return (
       <div className="container-fluid px-4 mb-5">
         <h4 className="text-white mb-3">
@@ -58,15 +58,24 @@ class MovieGallery extends Component {
           <Carousel indicators={false} interval={null}>
             {/* PRIMA SLIDE */}
             <Carousel.Item>
-              <Row className="g-1 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5">
+              <Row className="g-1 row-cols-1 row-cols-sm-2 row-cols-lg-6">
                 {firstSlide.map((movie) => (
                   <Col key={movie.imdbID}>
-                    <img
-                      src={movie.Poster}
-                      className="img-fluid effetto-zoom w-100"
-                      alt={movie.Title}
-                      style={{ height: "350px", objectFit: "cover" }}
-                    />
+                    <div
+                      className="d-block w-100"
+                      style={{
+                        height: "300px",
+                        overflow: "hidden",
+                        borderRadius: "4px",
+                      }}
+                    >
+                      <img
+                        src={movie.Poster}
+                        className="img-fluid effetto-zoom w-100 h-100"
+                        alt={movie.Title}
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
                   </Col>
                 ))}
               </Row>
@@ -75,15 +84,24 @@ class MovieGallery extends Component {
             {/* SECONDA SLIDE */}
             {secondSlide.length > 0 && (
               <Carousel.Item>
-                <Row className="g-1 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5">
+                <Row className="g-1 row-cols-1 row-cols-sm-2 row-cols-lg-6">
                   {secondSlide.map((movie) => (
                     <Col key={movie.imdbID}>
-                      <img
-                        src={movie.Poster}
-                        className="img-fluid effetto-zoom w-100"
-                        alt={movie.Title}
-                        style={{ height: "350px", objectFit: "cover" }}
-                      />
+                      <div
+                        className="d-block w-100"
+                        style={{
+                          height: "300px",
+                          overflow: "hidden",
+                          borderRadius: "4px",
+                        }}
+                      >
+                        <img
+                          src={movie.Poster}
+                          className="img-fluid effetto-zoom w-100 h-100"
+                          alt={movie.Title}
+                          style={{ objectFit: "cover" }}
+                        />
+                      </div>
                     </Col>
                   ))}
                 </Row>

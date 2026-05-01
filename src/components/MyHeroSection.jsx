@@ -32,7 +32,7 @@ function MyHeroSection() {
         </Col>
 
         {/* Parte Destra: Pulsanti Visualizzazione (Lista/Griglia) */}
-        <Col xs="auto" className="d-none d-md-block">
+        <Col xs="auto" className="d-none d-md-block ps-0" style={{ paddingRight: 9.5 }}>
           <Button
             variant="dark"
             className="border-secondary effetto-zoom rounded me-0 ms-0"

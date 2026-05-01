@@ -1,11 +1,3 @@
-/* Impostazioni principali per footer stick on bottom */
-html {
-  height: 100%;
-}
-body {
-  height: 100%;
-}
-
 /* Impostazioni per navbar + view al collapse + impostazioni principali per Homepage */
 form {
   display: flex;

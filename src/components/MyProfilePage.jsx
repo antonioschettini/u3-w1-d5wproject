@@ -26,7 +26,7 @@ function MyProfilePage() {
             {/* Nome Utente */}
             <Button
               variant="dark"
-              className="border-danger btn-sm mb-3 text-secondary w-100 text-md-start"
+              className="border-danger btn-sm mb-3 text-secondary w-50 text-md-start"
               style={{ borderRadius: "0" }}
             >
               Strive Student
