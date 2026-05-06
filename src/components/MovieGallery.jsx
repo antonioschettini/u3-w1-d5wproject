@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Row, Col, Carousel, Spinner, Alert } from "react-bootstrap";
+import { Link } from "react-router";
 
 class MovieGallery extends Component {
   // Stato iniziale del componente
@@ -61,32 +62,7 @@ class MovieGallery extends Component {
               <Row className="g-1 row-cols-1 row-cols-sm-2 row-cols-lg-6">
                 {firstSlide.map((movie) => (
                   <Col key={movie.imdbID}>
-                    <div
-                      className="d-block w-100"
-                      style={{
-                        height: "300px",
-                        overflow: "hidden",
-                        borderRadius: "4px",
-                      }}
-                    >
-                      <img
-                        src={movie.Poster}
-                        className="img-fluid effetto-zoom w-100 h-100"
-                        alt={movie.Title}
-                        style={{ objectFit: "cover" }}
-                      />
-                    </div>
-                  </Col>
-                ))}
-              </Row>
-            </Carousel.Item>
-
-            {/* SECONDA SLIDE */}
-            {secondSlide.length > 0 && (
-              <Carousel.Item>
-                <Row className="g-1 row-cols-1 row-cols-sm-2 row-cols-lg-6">
-                  {secondSlide.map((movie) => (
-                    <Col key={movie.imdbID}>
+                    <Link to={"/movie-details/" + movie.imdbID}>
                       <div
                         className="d-block w-100"
                         style={{
@@ -102,6 +78,35 @@ class MovieGallery extends Component {
                           style={{ objectFit: "cover" }}
                         />
                       </div>
+                    </Link>
+                  </Col>
+                ))}
+              </Row>
+            </Carousel.Item>
+
+            {/* SECONDA SLIDE */}
+            {secondSlide.length > 0 && (
+              <Carousel.Item>
+                <Row className="g-1 row-cols-1 row-cols-sm-2 row-cols-lg-6">
+                  {secondSlide.map((movie) => (
+                    <Col key={movie.imdbID}>
+                      <Link to={"/movie-details/" + movie.imdbID}>
+                        <div
+                          className="d-block w-100"
+                          style={{
+                            height: "300px",
+                            overflow: "hidden",
+                            borderRadius: "4px",
+                          }}
+                        >
+                          <img
+                            src={movie.Poster}
+                            className="img-fluid effetto-zoom w-100 h-100"
+                            alt={movie.Title}
+                            style={{ objectFit: "cover" }}
+                          />
+                        </div>
+                      </Link>
                     </Col>
                   ))}
                 </Row>

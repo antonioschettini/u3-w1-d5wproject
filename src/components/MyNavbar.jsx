@@ -1,11 +1,13 @@
 import { Navbar, Nav, NavDropdown, Container, Button } from "react-bootstrap";
+import { Link, useLocation } from "react-router";
 
 function MyNavbar() {
+  const location = useLocation();
   return (
     <Navbar bg="dark" variant="dark" expand="md" fluid="true">
       <Container fluid>
         {/* Logo */}
-        <Navbar.Brand href="#home">
+        <Navbar.Brand as={Link} to="/">
           <img
             src="../public/netflix_logo.png"
             className="effetto-zoom"
@@ -16,7 +18,15 @@ function MyNavbar() {
         <Navbar.Toggle aria-controls="navbarSupportedContent" />
         <Navbar.Collapse id="navbarSupportedContent">
           <Nav className="me-auto mb-2 mb-lg-0">
-            <Nav.Link href="./home.html" className="effetto-zoom active">
+            <Nav.Link
+              as={Link}
+              to="/"
+              className={
+                location.pathname === "/"
+                  ? "nav-link active effetto-zoom"
+                  : "nav-link effetto-zoom"
+              }
+            >
               Home
             </Nav.Link>
             <Nav.Link href="#" className="effetto-zoom">
@@ -27,9 +37,12 @@ function MyNavbar() {
             <NavDropdown
               title="Setting"
               id="setting-dropdown"
+              active={location.pathname === "/settings"}
               className="effetto-zoom"
             >
-              <NavDropdown.Item href="./setting.html">Setting</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/settings">
+                Setting
+              </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#">Subscribe</NavDropdown.Item>
             </NavDropdown>
@@ -66,7 +79,9 @@ function MyNavbar() {
               }
               id="profile-dropdown"
             >
-              <NavDropdown.Item href="./profile.html">Profile</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/profile">
+                Profile
+              </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="./setting.html">
                 Settings
